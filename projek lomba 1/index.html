@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoPet Game - Toko</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #2B254B;
+        }
+
+        html {
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body class="text-white">
+    <div class="container mx-auto p-4 md:p-8">
+        <!-- Bagian Header -->
+        <header class="relative flex items-center justify-between mb-10">
+            <!-- Kiri: Logo -->
+            <h1 class="text-3xl font-bold z-10">CryptoPet</h1>
+
+            <!-- Tengah: Navbar tengah-tengah halaman -->
+            <nav id="navbarMenu"
+                class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex space-x-6 text-gray-300">
+                <!-- Diisi oleh JS -->
+            </nav>
+
+
+            <!-- Kanan: Koin dan Wallet -->
+            <div class="flex items-center space-x-4 z-10">
+                <div class="bg-[#3A345E] flex items-center px-4 py-2 rounded-full">
+                    <img src="coin.png" alt="Ikon Koin" class="w-[22px] h-[22px]">
+                    <span id="coinDisplay" class="font-bold text-white ml-[6px] text-sm">0</span>
+
+                </div>
+                <button id="walletBtn" onclick="connectPlug()"
+                    class="bg-gradient-to-r from-[#AB56E2] to-[#7A5BF5] text-white text-sm px-4 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity">
+                    Connect Wallet
+                </button>
+
+
+            </div>
+        </header>
+        <!-- Main Content -->
+        <main>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Kartu Pet -->
+                <!-- Loop mulai -->
+                <div
+                    class="bg-[#3A345E] p-6 rounded-2xl text-center flex flex-col items-center border border-white/10 shadow-md min-h-[400px] transition-all duration-300 ease-in-out hover:transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/40">
+                    <div class="w-[190px] h-[190px] rounded-full bg-[#8C89A6] flex items-center justify-center mb-4">
+                        <img src="gajah 1.png" alt="Gambar gajah" class="w-[170px] h-[170px] object-contain"
+                            onerror="this.onerror=null;this.src='https://placehold.co/170x170?text=Error';">
+                    </div>
+                    <h2 class="text-xl font-bold mb-1">Elephant</h2>
+                    <div class="flex items-center justify-center space-x-1 mb-6">
+                        <img src="coin.png" alt="Ikon Koin" class="w-[22px] h-[22px]" />
+                        <span class="text-sm text-white font-medium">400</span>
+                    </div>
+                    <a href="gajah.html" class="w-full" onclick="return beliHewan('gajah.html', 'gajah', 400)">
+                        <button
+                            class="w-full bg-gradient-to-r from-purple-500 to-indigo-600 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">Donation</button>
+                    </a>
+                </div>
+
+                <!-- Kucing -->
+                <div
+                    class="bg-[#3A345E] p-6 rounded-2xl text-center flex flex-col items-center border border-white/10 shadow-md min-h-[400px] transition-all duration-300 ease-in-out hover:transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/40">
+                    <div class="w-[190px] h-[190px] rounded-full bg-[#8C89A6] flex items-center justify-center mb-4">
+                        <img src="kucing123.png" alt="Gambar gajah" class="w-[170px] h-[170px] object-contain"
+                            onerror="this.onerror=null;this.src='https://placehold.co/170x170?text=Error';">
+                    </div>
+                    <h2 class="text-xl font-bold mb-1">Cat</h2>
+                    <div class="flex items-center justify-center space-x-1 mb-6">
+                        <img src="coin.png" alt="Ikon Koin" class="w-[22px] h-[22px]" />
+                        <span class="text-sm text-white font-medium">400</span>
+                    </div>
+                    <a href="kucing.html" class="w-full" onclick="return beliHewan('kucing.html', 'kucing', 400)">
+                        <button
+                            class="w-full bg-gradient-to-r from-purple-500 to-indigo-600 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">Donation</button>
+                    </a>
+                </div>
+
+                <!-- Kelinci -->
+                <div
+                    class="bg-[#3A345E] p-6 rounded-2xl text-center flex flex-col items-center border border-white/10 shadow-md min-h-[400px] transition-all duration-300 ease-in-out hover:transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/40">
+                    <div class="w-[190px] h-[190px] rounded-full bg-[#8C89A6] flex items-center justify-center mb-4">
+                        <img src="kelinci.png" alt="Gambar gajah" class="w-[170px] h-[170px] object-contain"
+                            onerror="this.onerror=null;this.src='https://placehold.co/170x170?text=Error';">
+                    </div>
+                    <h2 class="text-xl font-bold mb-1">Rabbit</h2>
+                    <div class="flex items-center justify-center space-x-1 mb-6">
+                        <img src="coin.png" alt="Ikon Koin" class="w-[22px] h-[22px]" />
+                        <span class="text-sm text-white font-medium">400</span>
+                    </div>
+                    <a href="kelinci.html" class="w-full" onclick="return beliHewan('kelinci.html', 'Kelinci', 400)">
+                        <button
+                            class="w-full bg-gradient-to-r from-purple-500 to-indigo-600 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">Donation</button>
+                    </a>
+                </div>
+
+                <!-- Beruang -->
+                <div
+                    class="bg-[#3A345E] p-6 rounded-2xl text-center flex flex-col items-center border border-white/10 shadow-md min-h-[400px] transition-all duration-300 ease-in-out hover:transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/40">
+                    <div class="w-[190px] h-[190px] rounded-full bg-[#8C89A6] flex items-center justify-center mb-4">
+                        <img src="Bear 1.png" alt="Gambar gajah" class="w-[170px] h-[170px] object-contain"
+                            onerror="this.onerror=null;this.src='https://placehold.co/170x170?text=Error';">
+                    </div>
+                    <h2 class="text-xl font-bold mb-1">Bear</h2>
+                    <div class="flex items-center justify-center space-x-1 mb-6">
+                        <img src="coin.png" alt="Ikon Koin" class="w-[22px] h-[22px]" />
+                        <span class="text-sm text-white font-medium">400</span>
+                    </div>
+                    <a href="beruang.html" class="w-full" onclick="return beliHewan('beruang.html', 'beruang', 400)">
+                        <button
+                            class="w-full bg-gradient-to-r from-purple-500 to-indigo-600 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">Donation</button>
+                    </a>
+                </div>
+
+                <!-- Ayam -->
+                <div
+                    class="bg-[#3A345E] p-6 rounded-2xl text-center flex flex-col items-center border border-white/10 shadow-md min-h-[400px] transition-all duration-300 ease-in-out hover:transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/40">
+                    <div class="w-[190px] h-[190px] rounded-full bg-[#8C89A6] flex items-center justify-center mb-4">
+                        <img src="Ayam.png" alt="Gambar gajah" class="w-[170px] h-[170px] object-contain"
+                            onerror="this.onerror=null;this.src='https://placehold.co/170x170?text=Error';">
+                    </div>
+                    <h2 class="text-xl font-bold mb-1">Chicken</h2>
+                    <div class="flex items-center justify-center space-x-1 mb-6">
+                        <img src="coin.png" alt="Ikon Koin" class="w-[22px] h-[22px]" />
+                        <span class="text-sm text-white font-medium">400</span>
+                    </div>
+                    <a href="ayam.html" class="w-full" onclick="return beliHewan('ayam.html', 'ayam', 400)">
+                        <button
+                            class="w-full bg-gradient-to-r from-purple-500 to-indigo-600 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">Donation</button>
+                    </a>
+                </div>
+                <!-- Loop selesai -->
+            </div>
+        </main>
+    </div>
+
+    <script src="coin.js"></script>
+    <script src="toko.js"></script>
+
+    <!-- Modal Top Up -->
+<div id="topUpModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
+  <div class="bg-[#2B254B] p-6 rounded-2xl w-[300px] text-center shadow-xl border border-white/10">
+    <h2 class="text-xl font-bold mb-4">Top Up Coins</h2>
+    <div class="space-y-3">
+      <button onclick="topUp(100)" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg">100 Coins</button>
+      <button onclick="topUp(500)" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg">500 Coins</button>
+      <button onclick="topUp(1000)" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg">1000 Coins</button>
+    </div>
+    <button onclick="closeTopUpModal()" class="mt-4 text-sm text-gray-300 hover:underline">Batal</button>
+  </div>
+</div>
+
+
+</body>
+
+</html>
